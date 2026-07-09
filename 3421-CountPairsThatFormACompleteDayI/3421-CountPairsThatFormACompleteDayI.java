@@ -1,0 +1,15 @@
+// Last updated: 7/9/2026, 9:47:18 AM
+class Solution {
+    public int countCompleteDayPairs(int[] hours) {
+        int c = 0;
+        int n = hours.length;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if((hours[i]+hours[j])%24==0){
+                    c++;
+                }
+            }
+        }
+        return c;
+    }
+}
