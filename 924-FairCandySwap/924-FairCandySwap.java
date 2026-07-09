@@ -1,0 +1,26 @@
+// Last updated: 7/9/2026, 9:52:17 AM
+import java.util.*;
+
+class Solution {
+    public int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {
+        int sumA = 0, sumB = 0;
+        
+        for(int a : aliceSizes) sumA += a;
+        for(int b : bobSizes) sumB += b;
+        
+        int diff = (sumB - sumA) / 2;
+        
+        Set<Integer> setB = new HashSet<>();
+        for(int b : bobSizes) {
+            setB.add(b);
+        }
+        
+        for(int x : aliceSizes) {
+            if(setB.contains(x + diff)) {
+                return new int[]{x, x + diff};
+            }
+        }
+        
+        return new int[]{}; 
+    }
+}
